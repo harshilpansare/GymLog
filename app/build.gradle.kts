@@ -1,18 +1,20 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+    kotlin("kapt")
 }
 
 android {
     namespace = "com.growth.gymlog"
-    compileSdk = 34
+    compileSdk = Version.COMPILE_SDK_VERSION
 
     defaultConfig {
         applicationId = "com.growth.gymlog"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Version.MIN_SDK_VERSION
+        targetSdk = Version.TARGET_SDK_VERSION
+        versionCode = Version.APP_VERSION
+        versionName = Version.APP_VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -34,7 +36,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Version.JVM
     }
     buildFeatures {
         compose = true
@@ -50,21 +52,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core"))
+    implementation(project(Modules.CORE))
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.activity:activity-compose:1.8.2")
-    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    testImplementation("junit:junit:5.0-SNAPSHOT")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    kapt(DI.HILT_COMPILER)
 }
