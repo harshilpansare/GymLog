@@ -24,8 +24,6 @@ object AndroidX {
     const val NAVIGATION_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:${NAV_VERSION}"
     const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:${NAV_VERSION}"
 
-    const val SPLASH_SCREEN_API = "androidx.core:core-splashscreen:1.0.0"
-
     private const val LifecycleVersion = "2.6.1"
 
     const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:$LifecycleVersion"
@@ -53,11 +51,6 @@ object Network {
 }
 
 object UI {
-    const val MATERIAL_DESIGN = "com.google.android.material:material:1.8.0"
-    const val SHIMMER = "com.facebook.shimmer:shimmer:0.5.0"
-    const val SWIPE_TO_REFRESH = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-    const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:1.3.0"
-
     const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:1.8.2"
     const val COMPOSE_BOM = "androidx.compose:compose-bom:2023.08.00"
     const val COMPOSE_UI = "androidx.compose.ui:ui"
@@ -82,16 +75,6 @@ object Coroutine {
     // Coroutines
     const val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
     const val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
-}
-
-object Firebase {
-    // Firebase
-// When using the BoM, you don"t specify versions in Firebase library dependencies
-    const val BOM = "com.google.firebase:firebase-bom:31.4.0"
-    const val PERFORMANCE = "com.google.firebase:firebase-perf"
-    const val CRASH_ANALYSIS = "com.google.firebase:firebase-crashlytics-ktx"
-    const val MESSAGING = "com.google.firebase:firebase-messaging"
-    const val ANALYTICS = "com.google.firebase:firebase-analytics-ktx"
 }
 
 object ThirdParty {
