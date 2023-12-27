@@ -20,7 +20,7 @@ object AndroidX {
     const val FRAGMENT_COMPAT = "androidx.fragment:fragment-ktx:1.6.2"
 
     // navigation
-    const val NAV_VERSION = "2.5.3"
+    private const val NAV_VERSION = "2.5.3"
     const val NAVIGATION_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:${NAV_VERSION}"
     const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:${NAV_VERSION}"
 
@@ -36,10 +36,6 @@ object Network {
     private const val RetrofitVersion = "2.9.0"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:$RetrofitVersion"
     const val RETROFIT_LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:4.10.0"
-    const val MOSHI_ADAPTER = "com.squareup.moshi:moshi-adapters:1.14.0"
-    const val MOSHI_CONVERTOR = "com.squareup.retrofit2:converter-moshi:$RetrofitVersion"
-    const val KOTSHI = "se.ansman.kotshi:api:2.9.1"
-    const val KOTSHI_PROCESSOR = "se.ansman.kotshi:compiler:2.9.1"
 
     const val GSON = "com.google.code.gson:gson:2.10.1"
     const val GSON_CONVERTER = "com.squareup.retrofit2:converter-gson:2.9.0"
@@ -63,16 +59,12 @@ object UI {
 
 object DI {
     private const val hilt_version = "2.50"
-
-    // Koin main features for Android (Scope,ViewModel ...)
     const val HILT = "com.google.dagger:hilt-android:$hilt_version"
     const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:$hilt_version"
 }
 
 object Coroutine {
     private const val coroutine_version = "1.6.4"
-
-    // Coroutines
     const val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
     const val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 }
