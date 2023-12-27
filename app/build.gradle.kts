@@ -7,14 +7,14 @@ plugins {
 
 android {
     namespace = "com.growth.gymlog"
-    compileSdk = 34
+    compileSdk = Version.COMPILE_SDK_VERSION
 
     defaultConfig {
         applicationId = "com.growth.gymlog"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Version.MIN_SDK_VERSION
+        targetSdk = Version.TARGET_SDK_VERSION
+        versionCode = Version.APP_VERSION
+        versionName = Version.APP_VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -36,7 +36,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Version.JVM
     }
     buildFeatures {
         compose = true
@@ -52,7 +52,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core"))
+    implementation(project(Modules.CORE))
 
-    kapt("com.google.dagger:hilt-android-compiler:2.50")
+    kapt(DI.HILT_COMPILER)
 }

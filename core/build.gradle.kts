@@ -7,10 +7,10 @@ plugins {
 
 android {
     namespace = "com.growth.core"
-    compileSdk = 34
+    compileSdk = Version.COMPILE_SDK_VERSION
 
     defaultConfig {
-        minSdk = 24
+        minSdk = Version.MIN_SDK_VERSION
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -30,53 +30,60 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Version.JVM
     }
 }
 
 dependencies {
-    api("androidx.core:core-ktx:1.12.0")
+    // AndroidX
+    api(AndroidX.CORE_KTX)
+    api(AndroidX.ACTIVITY_COMPAT)
+    api(AndroidX.FRAGMENT_COMPAT)
+    // Navigation
+    api(AndroidX.NAVIGATION_UI)
+    api(AndroidX.NAVIGATION_FRAGMENT)
+    // Lifecycle
+    api(AndroidX.LIFECYCLE_COROUTINE)
+    api(AndroidX.VIEW_MODEL)
 
     // Hilt
-    api("com.google.dagger:hilt-android:2.50")
-    kapt("com.google.dagger:hilt-android-compiler:2.50")
+    api(DI.HILT)
+    kapt(DI.HILT_COMPILER)
 
-    // Retrofit + gson
-    api("com.squareup.retrofit2:retrofit:2.9.0")
-    api("com.squareup.okhttp3:logging-interceptor:4.10.0")
-
-    // Gson
-    api("com.google.code.gson:gson:2.10.1")
-    api("com.squareup.retrofit2:converter-gson:2.9.0")
-
-    // Glide
-    api("com.github.bumptech.glide:glide:4.15.1")
-    kapt("com.github.bumptech.glide:compiler:4.15.1")
-
-    // ViewModel LiveData Lifecycle
-    api("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-    api("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-
-    // Activity fragment appcompat
-    api("androidx.appcompat:appcompat:1.6.1")
-    api("androidx.activity:activity-ktx:1.8.2")
-    api("androidx.fragment:fragment-ktx:1.6.2")
-    api("androidx.core:core-ktx:1.12.0")
+    // Network
+    // Retrofit
+    api(Network.RETROFIT)
+    api(Network.RETROFIT_LOGGING_INTERCEPTOR)
+    // Chucker
+    debugApi(Network.CHUCKER_INTERCEPTOR)
+    releaseApi(Network.CHUCKER_INTERCEPTOR_NO_IMPL)
+    // Gson TODO replace with moshi
+    api(Network.GSON)
+    api(Network.GSON_CONVERTER)
 
     // Compose
-    api("androidx.activity:activity-compose:1.8.2")
-    api(platform("androidx.compose:compose-bom:2023.08.00"))
-    api("androidx.compose.ui:ui")
-    api("androidx.compose.ui:ui-graphics")
-    api("androidx.compose.ui:ui-tooling-preview")
-    api("androidx.compose.material3:material3")
-    debugApi("androidx.compose.ui:ui-tooling")
-    debugApi("androidx.compose.ui:ui-test-manifest")
+    api(UI.COMPOSE_ACTIVITY)
+    api(platform(UI.COMPOSE_BOM))
+    api(UI.COMPOSE_UI)
+    api(UI.COMPOSE_GRAPHICS)
+    api(UI.COMPOSE_PREVIEW)
+    api(UI.COMPOSE_MATERIAL3)
+    debugApi(UI.COMPOSE_DEBUG_TOOLING)
+    debugApi(UI.COMPOSE_DEBUG_MANIFEST)
 
     // Coroutines
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    api(Coroutine.CORE)
+    api(Coroutine.ANDROID)
 
-    // Junit
-    api("junit:junit:5.0-SNAPSHOT")
+    // Testing JUnit Mockito
+    testApi(Testing.CORE_TESTING)
+    testApi(Testing.COROUTINES_TEST)
+    testApi(Testing.JUNIT)
+    testApi(Testing.KOTLIN_MOCKITO)
+
+    // ThirdParty
+    api(ThirdParty.TIMBER)
+    // Glide
+    api(ThirdParty.GLIDE)
+    kapt(ThirdParty.GLIDE_ANNOTATION_PROCESSOR)
 }
